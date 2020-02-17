@@ -23,3 +23,4 @@ https://www.wallpaperup.com/
 ## 其他
 wallpaperup在国内访问速度很慢，建议用海外主机下载或者挂梯子。
 最近在折腾cdn，如果做了wallpaperup的加速点，会放上来
+如果有问题，欢迎在issue里讨论
