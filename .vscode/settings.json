@@ -1,4 +1,10 @@
 {
-    "python.pythonPath": "${workspaceFolder}/Scripts/python",
-    "python.sortImports.path": "${workspaceFolder}/Lib"
+    "python.pythonPath": "${workspaceFolder}/Scripts/python.exe",
+    "python.autoComplete.extraPaths": ["${workspaceFolder}/Lib/site-packages","${workspaceFolder}/Lib","${workspaceFolder}/Scripts"],
+    "python.jediEnabled": true,
+    "python.sortImports.path": "${workspaceFolder}/Lib",
+    "python.venvPath": "${workspaceFolder}/virtualenvs",
+    "editor.formatOnType": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "python.autoComplete.addBrackets": true
 }
