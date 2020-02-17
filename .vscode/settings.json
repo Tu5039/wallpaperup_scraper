@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "${workspaceFolder}/Scripts/python",
+    "python.sortImports.path": "${workspaceFolder}/Lib"
+}
