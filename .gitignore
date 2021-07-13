@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+
+bin
+lib
+Wallpaperup
+log.txt
+pyvenv.cfg
+test*

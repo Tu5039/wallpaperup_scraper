@@ -43,8 +43,8 @@ while page_num <= 500:  # 设置最后一页
 
             'color': '',
             # 'color': '#80c0e0',  # 颜色，自行修改颜色的编码
-            'oder': '',  # 自行根据需要修改
-            # 'order': 'date_added',  # 排序
+            # 'oder': '',  # 自行根据需要修改
+            'order': 'date_added',  # 排序
         }
 
         # 生成url
@@ -56,7 +56,11 @@ while page_num <= 500:  # 设置最后一页
                 url += (key + option['resolution_mode'] + option[key])
             else:
                 url += (key + ':' + option[key])
-        url += str(page_num)
+                url += "+"
+        url = url[:-1]+"/"+str(page_num)
+        print(url)
+        with open("log.txt", "a") as log:
+            log.write(url)
 
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
@@ -87,8 +91,8 @@ while page_num <= 500:  # 设置最后一页
             wallpaper_imgaes_link.append(
                 str(soup_div_img.div.img.attrs['data-original']))
 
-        # 新建文件夹，按页码存放
-        wallpapers_folder = './Wallpaperup/'+str(page_num).zfill(3)+'/'
+        # 新建文件夹，用以存放下载的图片
+        wallpapers_folder = './Wallpaperup/'
         if os.path.exists(wallpapers_folder) == False:
             os.makedirs(wallpapers_folder)  # 这里使用makedirs来创建多级目录，mkdir只能建立一级
 
@@ -107,7 +111,9 @@ while page_num <= 500:  # 设置最后一页
                 log.write(str(imageNumMin)+'/'+str(imageNumMax) +
                           str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))+' \n')
             r_image_link = requests.get(image_link, headers=headers)
-            filename = p_split_name.split(image_link)[9]
+            filename = str(re.compile(r"\d{4}\/\d{2}\/\d{2}\/\d+").findall(
+                image_link)[0]).replace("/", "", 2).replace("/", "_")+".jpg"
+            print("filename=", filename)
             with open(wallpapers_folder+filename, 'wb+') as f:
                 f.write(r_image_link.content)
             imageNumMin = imageNumMin+1

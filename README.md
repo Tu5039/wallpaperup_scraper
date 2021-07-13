@@ -2,7 +2,7 @@ README.md
 # Wallpaperup 爬虫
 
 ## 环境
-python version: python3.7.5
+python version: python3.9.6
 
 core dependency: bs4 requests lxml
 
@@ -18,6 +18,10 @@ pip install bs4 requests lxml
 ```shell
 python wallpaperup_scrapy.py
 ```
+
+## 说明
+
+运行后，爬取到的图片将放在工作目录下Wallpaperup目录中。
 
 ## 参考
 https://github.com/AaronFeng753/wallpaperup.git AaronFeng753的wallpaperup.py
